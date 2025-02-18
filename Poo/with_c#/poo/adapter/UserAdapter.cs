@@ -49,7 +49,7 @@ namespace poo.adapter
 
         public List<UserModel>? getAllUsers(){
             
-            if( isEmpty()) return null;
+            if( isEmpty() ) return null;
 
             List<UserModel> users = new List<UserModel>();
 
@@ -63,9 +63,10 @@ namespace poo.adapter
             return users;
         }
 
-        public UserModel? getUserByTerm<T>( string term, T value ) where T: struct {
+        public UserModel? getUserByTerm<T >( string term, T value ) {
 
             if( isValidTerm( term ) == false ) return null;
+            if( isEmpty()) return null;
 
             UserNode? currentNode = head;
 

@@ -4,9 +4,11 @@ namespace poo.interfaces
 {
     public interface IUser
     {
-        List<UserModel> findAllUsers();
+        List<UserModel>? findAllUsers();
 
-        UserModel findById( int id );
+        UserModel? findById( int id );
+
+        UserModel? findByUsername( string username );
         
     }
 }

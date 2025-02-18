@@ -20,9 +20,18 @@ namespace poo.services
             return null;
         }
 
-        public UserModel findById(int id)
+        public UserModel? findById(int id)
         {
-            throw new NotImplementedException();
+           UserModel? user = userAdapter.getUserByTerm<int>("id", id);
+
+           return user;
+        }
+
+        public UserModel? findByUsername(string username)
+        {
+            UserModel? user = userAdapter.getUserByTerm<string>("userName", username);
+
+            return user;
         }
     }
 }
