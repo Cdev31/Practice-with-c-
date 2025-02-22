@@ -18,6 +18,7 @@ namespace poo.adapter
     public class UserAdapter
     {
         private UserNode? head = null;
+        private int id = 0;
         private static string[] terms = { "userName", "id", "phoneNumber", "dui" };
 
         public bool isEmpty(){
@@ -37,11 +38,14 @@ namespace poo.adapter
         }
 
         public bool insertUser( UserModel user ){
-
+            
+            user.id = id++;
             UserNode newUser = new UserNode( user );
-
+           
             newUser.next = head;
-            head.previus = newUser;
+            if( head != null ){
+                head.previus = newUser;
+            }
             head = newUser;
 
             return true;
@@ -63,7 +67,7 @@ namespace poo.adapter
             return users;
         }
 
-        public UserModel? getUserByTerm<T >( string term, T value ) {
+        public UserModel? getUserByTerm<T>( string term, T value ) {
 
             if( isValidTerm( term ) == false ) return null;
             if( isEmpty()) return null;

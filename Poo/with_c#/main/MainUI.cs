@@ -17,16 +17,46 @@ namespace main
                 Console.WriteLine("4- Salir \n");
                 response = int.Parse(Console.ReadLine());
 
+                // switch (response)
+                // {
+                
+                //     default:
+                // }
+
             } while ( response != 4);
         }
         public void execute(){
             
             AuthUI authUI = new AuthUI();
+            UserUI userUI = new UserUI();
+            int response = 0;
 
             do
             {
-                isAuthenticated = authUI.login();
-            } while ( isAuthenticated == false );
+                Console.WriteLine("Bienvenido a su app");
+
+                Console.WriteLine("1-Iniciar Sesion");
+                Console.WriteLine("2-Registrarse");
+                Console.WriteLine("3- Salir");
+                response = int.Parse(Console.ReadLine());
+
+                switch (response)
+                {
+                    case 1:
+                    userUI.findUsers();
+                    //   bool isAuth = authUI.login();
+                    //   if( isAuth == true) {
+                    //     isAuthenticated = true;
+                    //     response = 3;
+                    //   };
+                      break;
+                    case 2:
+                       bool isRegister = authUI.register();
+                       if( isRegister == true ) response = 1;
+                       break;
+                }
+                
+            } while ( response != 3 );
 
             if( isAuthenticated == true ){
                 menu();

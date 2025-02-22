@@ -14,5 +14,9 @@ namespace poo.services
         {
            return authAdapter.login( username, password );
         }
+
+        public bool register( string username, string password, int dui, string phone ){
+            return authAdapter.register( username, password, dui, phone );
+        }
     }
 }
